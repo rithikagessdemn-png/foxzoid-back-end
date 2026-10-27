@@ -167,9 +167,10 @@ const buildGameData = (body, files) => {
   // Frontend sends the external URL as the field "url" — always map it to gameUrl
   if (url !== undefined) data.gameUrl = url;
 
-  // Image upload
+  // ✅ Image upload — Cloudinary returns secure URL in file.path
   if (files?.image?.[0]) {
-    data.image = `/api/game-images/${files.image[0].filename}`;
+    // multer-storage-cloudinary stores the Cloudinary URL in file.path
+    data.image = files.image[0].path;
   }
 
   return data;

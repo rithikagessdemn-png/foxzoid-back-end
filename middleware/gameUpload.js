@@ -1,23 +1,28 @@
 import multer from "multer";
 import fs from "fs";
 import path from "path";
+import { v2 as cloudinary } from "cloudinary";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
 
-const imageDir = "public/game-images";
+// ✅ Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key:    process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
-if (!fs.existsSync(imageDir)) fs.mkdirSync(imageDir, { recursive: true });
-
-// ✅ Images go to disk (they need a permanent path)
-const imageStorage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, imageDir),
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname);
-    cb(null, Date.now() + ext);
+// ✅ Cloudinary storage for images (game thumbnails, etc.)
+const cloudinaryStorage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "foxzoid-games",           // Cloudinary folder name
+    allowed_formats: ["jpg", "jpeg", "png", "webp", "avif", "gif"],
+    transformation: [{ width: 1200, height: 800, crop: "limit", quality: "auto" }],
   },
 });
 
-// ✅ ZIP goes to disk too (memory is risky for large files),
-//    but we skip the double-read by streaming directly during extraction
-const zipStorage = multer.diskStorage({
+// ✅ Disk storage for ZIP files (large, can't go to Cloudinary)
+const zipDiskStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadDir = "uploads";
     if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
@@ -28,23 +33,25 @@ const zipStorage = multer.diskStorage({
   },
 });
 
-// Route each file to the right storage
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
+// ✅ Route each file to the correct storage
+const storage = {
+  _handleFile(req, file, cb) {
     if (file.mimetype.startsWith("image/")) {
-      if (!fs.existsSync(imageDir)) fs.mkdirSync(imageDir, { recursive: true });
-      cb(null, imageDir);
+      // Use Cloudinary for images
+      cloudinaryStorage._handleFile(req, file, cb);
     } else {
-      const uploadDir = "uploads";
-      if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
-      cb(null, uploadDir);
+      // Use disk for ZIP files
+      zipDiskStorage._handleFile(req, file, cb);
     }
   },
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname) || ".zip";
-    cb(null, Date.now() + ext);
+  _removeFile(req, file, cb) {
+    if (file.mimetype.startsWith("image/")) {
+      cloudinaryStorage._removeFile(req, file, cb);
+    } else {
+      zipDiskStorage._removeFile(req, file, cb);
+    }
   },
-});
+};
 
 const upload = multer({
   storage,
