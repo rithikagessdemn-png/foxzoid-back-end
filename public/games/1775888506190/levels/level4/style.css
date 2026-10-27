@@ -1,0 +1,343 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.loader {
+    border: 4px solid #333;
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    z-index: 9999;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.container{
+    width: 360px;
+    height: 640px;
+    position: relative;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+.bg1{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: 1;
+}
+.inventory {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 400;
+    pointer-events: none;
+}
+.inventry{
+    position: absolute;
+    width: 370px;
+    left: 0;
+    bottom: 0;
+    z-index: 300;
+    pointer-events: none;
+}
+.hitbox{
+    position: absolute;
+    top: 47%;
+    left: 0%;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255,0,0,0);
+    cursor: pointer;
+    z-index: 50;
+}
+.clue-paper1{
+    position: absolute;
+    bottom: 40px;
+    left: 25px;
+    width: 60px;
+    z-index: 350;
+    display: none;
+    cursor: pointer;
+}
+.clue-overlay{
+    position: absolute;
+    inset: 0;
+    display: none;
+    z-index: 200;
+
+}
+.blur-bg{
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(3px);
+    z-index: 1;
+    position: absolute;
+
+}
+.large-clue1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%; 
+    border-radius: 10px;
+    z-index: 201;
+}
+.close-btn{
+    position: absolute;
+    top: 30%;
+    right: 30px;
+    width: 40px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    z-index: 202;
+}
+.box-overlay{
+    position: absolute;
+    inset: 0;
+    display: none;
+    z-index: 200;
+}
+
+.hitbox2{
+    position: absolute;
+    top: 55%;
+    left: 35%;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255,0,0,0);
+    cursor: pointer;
+    pointer-events: none;
+    z-index: 50;
+}
+.box1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#close-btn {
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    width: 50px;
+    z-index: 152;
+    cursor: pointer;
+}
+
+/* ===================== SAFE KEYPAD WRAPPER ===================== */
+.keypad-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    z-index: 210;
+    pointer-events: none;
+}
+
+.button-grid {
+    position: absolute;
+    top: 12%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1px;
+    pointer-events: auto;
+}
+
+.num-btn {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.num-btn:active {
+    transform: scale(0.9);
+    filter: brightness(1.2);
+}
+
+/* ===================== CLUE PAPER 2 ===================== */
+.clue-paper2{
+    position: absolute;
+    bottom: 40px;
+    left: 25px;
+    width: 60px;
+    z-index: 350;
+    display: none;
+    cursor: pointer;
+}
+.clue-overlay2{
+    position: absolute;
+    inset: 0;
+    display: none;
+    z-index: 200;
+}
+.large-clue2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%; 
+    border-radius: 10px;
+    z-index: 201;
+}
+.close-btn3{
+    position: absolute;
+    top: 30%;
+    right: 30px;
+    width: 40px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    z-index: 202;
+}
+
+/* ===================== HITBOX 3 ===================== */
+.hitbox3{
+    position: absolute;
+    top: 40%;
+    left: 63%;
+    width: 30px;
+    height: 50px;
+    background-color: rgba(255,0,0,0);
+    cursor: pointer;
+    pointer-events: none;
+    z-index: 50;
+}
+
+/* ===================== DOOR KEYPAD ===================== */
+.doorKeypadImg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#doorKeypadWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    z-index: 210;
+    pointer-events: none;
+}
+
+.doorbutton-grid {
+    position: absolute;
+    top: 12%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2px;
+    pointer-events: auto;
+}
+
+.door-btn {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.door-btn:active {
+    transform: scale(0.9);
+    filter: brightness(1.2);
+}
+
+/* ===================== FINAL OVERLAY ===================== */
+.final-overlay {
+    position: absolute;
+    inset: 0;
+    display: none;
+    z-index: 500;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    background: url('../../assets/room4/finalpanel4.webp');
+}
+
+.final-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    z-index: 501;
+}
+.final-close-btn {
+    position: absolute;
+    bottom: 500px;
+    left: 290px;
+    width: 50px;
+    height: 50px;
+    z-index: 502;
+    cursor: pointer;
+}
+.lastoptions {
+    position: absolute;
+    top: 58%;
+    left: 48%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    z-index: 502;
+}
+.homebtn, .nextbtn {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.adsbygoogle.panel-ad {
+    height: 200px !important;
+}
+
+.adsbygoogle.panel-ad div,
+.adsbygoogle.panel-ad iframe {
+    height: 200px !important;
+}

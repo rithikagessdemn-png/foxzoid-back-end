@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #000;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000" />
+    <title>Door Handle Interaction</title>
+    <style>
+        /* Prevent white flash - load before CSS */
+        html, body {
+            background: #000 !important;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212604162895578" crossorigin="anonymous"></script>
+    <script src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"></script>
+</head>
+<body>
+<div id="loader" class="loader"></div>
+<!-- Game Screen Container -->
+<div class="game-screen" id="gameScreen" style="opacity: 0;">
+    <!-- Door Image -->
+    <img src="../../assets/room11/bg_1.webp" class="bg-image" id="bgImage" alt="Door">
+    
+    <!-- Inventory -->
+    <img src="../../assets/ICONS/game_inventry.webp" class="inventory-bg" alt="Game Inventory">
+    <div class="slot" id="slot11">
+        <img src="../../assets/room11/keys.webp" class="inventory-key hidden" id="inventoryKey" alt="Key" draggable="true">
+    </div>
+    
+    <!-- Handle Hotspot -->
+    <div class="handle-area" id="handle" role="button" aria-label="Click door handle"></div>
+    
+    <!-- Level Complete Panel -->
+    <img src="../../assets/room11/final_panel_11.webp" class="overlay-image hidden" id="finalPanel11" />
+    <img src="../../assets/ICONS/close.webp" id="panelCloseBtn11" class="final-close-btn hidden" />
+    <div id="lastoptions11" class="lastoptions" style="display: none;">
+        <img src="../../assets/ICONS/home.webp" id="homeBtn11" class="lastButtons" />
+        <img src="../../assets/ICONS/play.webp" id="nextBtn11" class="lastButtons" />
+    </div>
+    
+    <!-- escape game -->
+    <ins class="adsbygoogle panel-ad"
+         style="display:none; position: absolute; width: 100%; left: 0%; bottom: 0%; z-index: 1003; height: 200px;"
+         data-ad-client="ca-pub-3212604162895578"
+         data-ad-slot="1523547496"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    
+    <!-- First Popup - Zoom View -->
+    <div class="popup" id="popup" role="dialog" aria-hidden="true">
+        <div class="zoom-container">
+            <img src="../../assets/room11/zoom.webp" id="popup-img" alt="Door handle close-up" role="button">
+        </div>
+    </div>
+    
+    <!-- Second Popup - Puzzle Game -->
+    <div class="popup" id="popup2" role="dialog" aria-hidden="true">
+        <div class="bg-container">
+            <img src="../../assets/room11/puzzle_and_key/1.webp" alt="Puzzle background" class="bg-image">
+            
+            <!-- Key Images (dynamically shown/hidden) -->
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key0">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key1">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key2">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key3">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key4">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key5">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key6">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key7">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key8">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key9">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key10">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key11">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key12">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key13">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key14">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key15">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key16">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key17">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key18">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key19">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key20">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key21">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key22">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key23">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key24">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key25">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key26">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key27">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key28">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key29">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key30">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key31">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key32">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key33">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key34">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key35">
+            <img src="../../assets/room11/puzzle_and_key/key.webp" alt="Key" class="key-image" id="key36">
+            
+            <!-- Arrow Controls -->
+            <div class="arrow-box">
+                <div class="arrow-row">
+                    <button class="arrow-btn" data-dir="up" aria-label="Move up">
+                        <img src="../../assets/room11/arrows/arrow_1.webp" alt="" class="arrow">
+                    </button>
+                    <button class="arrow-btn" data-dir="left" aria-label="Move left">
+                        <img src="../../assets/room11/arrows/arrow_5.webp" alt="" class="arrow">
+                    </button>
+                    <button class="arrow-btn" data-dir="down" aria-label="Move down">
+                        <img src="../../assets/room11/arrows/arrow_4.webp" alt="" class="arrow">
+                    </button>
+                    <button class="arrow-btn" data-dir="right" aria-label="Move right">
+                        <img src="../../assets/room11/arrows/arrow_6.webp" alt="" class="arrow">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../load/loaderUtils.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

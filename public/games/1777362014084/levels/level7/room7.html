@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #000;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <title>level7</title>
+  <style>
+    /* Prevent white flash - load before CSS */
+    html, body {
+      background: #000 !important;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212604162895578" crossorigin="anonymous"></script>
+  <script src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"></script>
+</head>
+<body>
+  <div id="loader" class="loader"></div>
+  <div class="game-screen" id="gameScreen" style="opacity: 0;">
+    
+    <div class="scene" id="scene">
+        <img id="sceneImage" src="../../assets/room7/bg_1.webp" />
+        <div class="crowbar" id="crowBar"></div>
+        <div class="key-area" id="key"></div>
+        <div class="locked-box" id ="lockedBox" onclick="nextImage()"></div>
+        <img src="../../assets/room7/wooden_box.webp" class="overlay-image hidden" id="overlay">
+        <img src="../../assets/ICONS/close.webp" id="closeBtn" class="close-btn hidden" alt="Close"/>
+        <div class="final-crowbar-area disabled" id="finalCrowBarArea"></div> 
+        <div class="locked-box-area disabled" id="lockedBoxArea"></div> 
+        <div class="locked-box-key-area disabled" id="lockedBoxKeyArea"></div> 
+        <div class="final-key-area disabled" id="finalKeyArea"></div>
+        <div class="final-door-area disabled" id="finalDoorArea"></div> 
+        <img src="../../assets/room7/final_panel_7@2x.webp" class="finaloverlay-image hidden" id="finalOverlay"/>
+        <img src="../../assets/ICONS/close.webp" id="finalCloseBtn" class="final-close-btn hidden" alt="Close"/>
+
+    </div>
+    <div class="lastoptions" id="lastoptions" style="display: none;">
+      <img src="../../assets/ICONS/home.webp" alt="" class="homebtn" id="lastButtons">
+      <!-- <img src="../../assets/ICONS/setting.png" alt="" class="retrybtn" id="lastButtons"> -->
+      <img src="../../assets/ICONS/play.webp" alt=""class="nextbtn" id="lastButtons">
+ </div>
+    
+    <!-- escape game -->
+    <ins class="adsbygoogle panel-ad"
+         style="display:none; position: absolute; width: 100%; left: 0%; bottom: 0%; z-index: 1003; height: 200px;"
+         data-ad-client="ca-pub-3212604162895578"
+         data-ad-slot="1523547496"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins> 
+
+    <div class="inventory">
+        <img src="../../assets/ICONS/game_inventry.webp" class="inventory-bg" id="inventory" />
+
+        <div class="slot" id="slot"></div>
+        <div class="slot1" id="slot1"></div>
+    </div>
+  </div>
+  <script src="../load/loaderUtils.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

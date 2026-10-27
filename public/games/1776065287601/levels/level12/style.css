@@ -1,0 +1,292 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    font-family: sans-serif;
+}
+
+.loader {
+    border: 4px solid #333;
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    z-index: 9999;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.game-screen {
+    position: relative;
+    width: 360px;
+    height: 640px;
+    overflow: hidden;
+    background: #222;
+    transition: opacity 0.3s ease;
+}
+
+/* --- UTILITIES --- */
+.hidden { display: none !important; }
+.disabled { pointer-events: none; }
+.blur-bg { filter: blur(4px); transition: filter 0.8s ease; }
+
+/* --- 1. BACKGROUND --- */
+.bg-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* --- 2. DOOR KNOB (Visual) --- */
+.door-knob {
+    position: absolute;
+    bottom: 188px;
+    left: 34%;
+    width: 52%;
+    transform: translateX(-50%);
+    transition: transform 0.6s ease;
+    z-index: 100;
+    cursor: pointer;
+}
+.door-knob.moved {
+    transform: translateX(-15%); /* Slides to the side */
+}
+
+/* --- 3. HITBOXES (Invisible) --- */
+.door-knob-hitbox {
+    position: absolute;
+    bottom: 294px;
+    left: 36%;
+    width: 41px;
+    height: 76px;
+    transform: translateX(-50%);
+    z-index: 200; /* Must be higher than visual knob */
+    cursor: pointer;
+    transition: transform 0.6s ease;
+    /* background: rgba(255,0,0,0.5); /* Uncomment to debug */
+}
+.door-knob-hitbox.moved {
+    transform: translateX(-15%);
+    left: 39%;
+    width: 67px;
+    height: 165px;
+    bottom: 254px;
+}
+
+.door-drop-zone {
+    position: absolute;
+    top: 266px;
+    left: 30%;
+    width: 36px;
+    height: 74px;
+    z-index: 20;
+}
+/* In style.css */
+
+.maze-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Use a semi-transparent background so the blur effect is visible on the game background */
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.maze-container { position: relative; text-align: center; }
+
+/* In style.css */
+
+/* In style.css, find the canvas rule */
+
+canvas {
+    border-radius: 50%;
+    background: rgba(0,0,0,0.3); /* Dark glass */
+    backdrop-filter: blur(3px);          /* <--- This is 3px */
+    -webkit-backdrop-filter: blur(15px);
+
+    /* UPDATE THESE SIZES */
+    max-width: 350px;  /* Was 300px */
+    max-height: 350px; /* Was 300px */
+    width: 100%;
+
+    border: 2px solid rgba(255, 255, 100, 0.5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Controls */
+.controls { margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+
+
+
+/* Rotate Up Arrow */
+
+
+/* Generic rule for other arrows (Left, Right, Down) */
+/* --- VIRTUAL JOYSTICK --- */
+#joystick-zone {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    touch-action: none; /* CRITICAL: Stops screen from scrolling when dragging */
+}
+
+#joystick-base {
+    width: 120px;
+    height: 120px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+#joystick-stick {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(200,200,200,1) 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the stick */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    pointer-events: none; /* Let the base handle the touches */
+    transition: transform 0.1s ease-out; /* Smooth snap back to center */
+}
+
+/* Turns off the animation while dragging so it follows your thumb instantly */
+#joystick-stick.dragging {
+    transition: none;
+}
+
+/* ==========================================
+   GLOBAL GAME FEEL (Put in main style)
+   ========================================== */
+
+/* 1. Stop blue text highlighting everywhere */
+body {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+
+.instructions { color: #fff; margin-top: 10px; font-size: 14px; }
+
+/* --- 5. UI BUTTONS --- */
+.close-btn {
+    position: absolute;
+    bottom: 436px;
+    left: 73%;
+    width: 40px;
+    height: 40px;
+    z-index: 250;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.close-btn:active { transform: scale(0.9); }
+
+/* --- 6. INVENTORY --- */
+.inventory {
+    position: absolute; bottom: 0; width: 100%; height: 100px;
+    z-index: 300; pointer-events: none;
+}
+.inventory-bg { width: 100%; position: absolute; bottom: 0; pointer-events: none; }
+.slot {
+    position: absolute; left: 28px; bottom: 23px; width: 50px; height: 50px;
+    z-index: 301; pointer-events: auto;
+    display: flex; justify-content: center; align-items: center;
+}
+
+/* --- 7. LEVEL COMPLETE PANEL --- */
+.level-complete-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.panel-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+    z-index: -1;
+} /* <--- THIS BRACKET WAS MISSING! */
+
+.panel-buttons {
+    position: absolute;
+    top: 58%;
+    left: 27%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    z-index: 2;
+}
+
+.panel-btn {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+}
+
+.panel-btn:active {
+    transform: scale(0.9);
+}
+
+/* Close Button */
+.panel-close-btn {
+    position: absolute;
+    bottom: 500px;
+    left: 290px;
+    width: 50px;
+    height: 50px;
+    z-index: 1001;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.panel-close-btn:active {
+    transform: scale(0.9);
+}
+
+@keyframes popIn {
+    /* Changed this because translate(-50%, -50%) will throw a full-screen panel off-center */
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.adsbygoogle.panel-ad {
+    height: 200px !important;
+}
+
+.adsbygoogle.panel-ad div,
+.adsbygoogle.panel-ad iframe {
+    height: 200px !important;
+}

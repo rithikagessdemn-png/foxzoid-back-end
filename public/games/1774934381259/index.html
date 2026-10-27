@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #000 !important;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>Game</title>
+    <style>
+        html, body {
+            background: #000 !important;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border: 5px solid #333;
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    </style>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "VideoGame",
+            "name": "100 Doors Escape",
+            "description": "A challenging web-based escape room game. Solve puzzles, find hidden clues, and unlock all 100 doors to escape.",
+            "genre": "Puzzle / Escape Room",
+            "gamePlatform": "Web Browser",
+            "operatingSystem": "Any",
+            "applicationCategory": "Game",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        }
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212604162895578" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="loader"></div>
+    <script>
+        window.location.replace('levels/load/loading.html');
+    </script>
+    <div style="width: 100%; max-width: 360px; margin: 10px auto; text-align: center; display: none;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3212604162895578"
+             data-ad-slot="1620433269"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #000;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <title>Home - 100 Doors</title>
+  <style>
+    /* Prevent white flash - load before CSS */
+    html, body {
+      background: #000 !important;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="home.css" />
+</head>
+</head>
+<body>
+    <!-- Homepage -->
+    <div class="homepage-screen">
+      <div class="game-container" id="gameContainer">
+        <img src="../../assets/ICONS/setting.webp" class="settings-icon" id="settingsBtn" />
+        <img src="../../assets/home_page/100_door_title.webp" class="title-image">
+        <div class="container">
+          <center>
+            <div class="menu">
+              <button class="menu-btn" id="playBtn">PLAY</button>
+              <button class="menu-btn" id="levelsBtn">LEVELS</button>
+              <button class="menu-btn" id="gamesBtn">MORE GAME</button>
+            </div>
+          </center>
+        </div>
+      </div>
+
+      <!-- Settings Popup -->
+      <div class="settings-popup" id="settings">
+        <div class="settings-box">
+          <img src="../../assets/home_page/panneldesign/close_btn.webp" class="settings-close-btn" id="closeSettingsBtn" />
+          <h2>Settings</h2>
+          <div class="setting-item">
+            <span>🔊 Sound</span>
+            <img src="../../assets/home_page/panneldesign/volume_btn.webp" class="toggle-btn" id="soundToggle" data-active="true" />
+          </div>
+          <div class="setting-item">
+            <span>🎵 Music</span>
+            <img src="../../assets/home_page/panneldesign/volume_btn.webp" class="toggle-btn" id="musicToggle" data-active="true" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script src="../../assets/js/seamlessMusic.js"></script>
+  <script src="../../assets/js/loadingOverlay.js"></script>
+  <script src="../load/loaderUtils.js"></script>
+  <script src="home.js"></script>
+  <script>
+    // Set initial sound and music toggle states
+    window.addEventListener('DOMContentLoaded', function() {
+      const soundToggle = document.getElementById('soundToggle');
+      const musicToggle = document.getElementById('musicToggle');
+      
+      // Wait for seamless music manager to initialize
+      setTimeout(() => {
+        const manager = window.seamlessMusicManager || window.globalMusicManager;
+        if (manager) {
+          const soundEnabled = manager.isSoundEnabled();
+          const musicEnabled = manager.isMusicEnabled();
+          
+          if (!soundEnabled) {
+            soundToggle.src = "../../assets/home_page/panneldesign/volume_mute_btn.webp";
+            soundToggle.dataset.active = "false";
+          }
+          
+          if (!musicEnabled) {
+            musicToggle.src = "../../assets/home_page/panneldesign/volume_mute_btn.webp";
+            musicToggle.dataset.active = "false";
+          }
+        }
+      }, 200);
+    });
+  </script>
+</body>
+</html>

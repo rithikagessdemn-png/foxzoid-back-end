@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #000;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000" />
+    <title>Level 1 - Escape Room</title>
+    <style>
+        /* Prevent white flash - load before CSS */
+        html, body {
+            background: #000 !important;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212604162895578" crossorigin="anonymous"></script>
+    <script src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"></script>
+</head>
+<body>
+<div id="loader" class="loader"></div>
+
+<div class="game-wrapper">
+
+    <div class="game-screen" id="gameScreen" style="opacity: 0;">
+        <img src="../../assets/room1/room_final.webp" class="bg-image" id="bgImage"/>
+        <img src="../../assets/room1/carpet_in_room_1.webp" class="carpet" id="carpet"/>
+        <img src="../../assets/room1/key_to_open_the_door_for_room_1.png" class="key hidden" id="key"/>
+
+        <div class="carpet-area" id="carpetArea"></div>
+        <div class="key-area disabled" id="keyArea"></div>
+        <div id="doorArea" class="door-area disabled"></div>
+
+        <img src="../../assets/ICONS/close.webp" id="finalCloseBtn" class="final-close-btn hidden" alt="Close"/>
+        <img src="../../assets/room1/final_panel_1.webp" class="overlay-image hidden" id="overlay"/>
+
+        <div class="lastoptions" id="lastoptions" style="display: none;">
+            <img src="../../assets/ICONS/home.webp" alt="" class="homebtn" id="lastButtons">
+            <img src="../../assets/ICONS/play.webp" alt="" class="nextbtn" id="lastButtons">
+        </div>
+
+        <div class="inventory">
+            <img src="../../assets/ICONS/game_inventry.webp" class="inventory-bg" />
+            <div class="slot" id="slot1"></div>
+        </div>
+        
+        <!-- escape game -->
+        <ins class="adsbygoogle panel-ad"
+             style="display:none; position: absolute; width: 100%; left: 0%; bottom: 0%; z-index: 1003; height: 200px;"
+             data-ad-client="ca-pub-3212604162895578"
+             data-ad-slot="1523547496"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        
+    </div>
+
+</div>
+
+<script src="../../assets/js/seamlessMusic.js"></script>
+<script src="../../assets/js/gameEndMusicControl.js"></script>
+<script src="../load/loaderUtils.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

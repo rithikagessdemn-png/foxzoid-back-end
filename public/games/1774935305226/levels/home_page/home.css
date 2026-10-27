@@ -1,0 +1,170 @@
+body{
+    margin: 0;
+    display: flex;
+    background: #000;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Homepage Styles */
+.homepage-screen {
+    width: 360px;
+    height: 640px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.game-container {
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/home_page/home_page_without_title.webp") no-repeat center/cover;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.settings-btn-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.settings-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+.title-image {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 50px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.menu-btn {
+    width: 220px;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    background: #f0ad48;
+    box-shadow: 0 6px #d18c2c;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.menu-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px #d18c2c;
+}
+
+/* Settings Popup */
+.settings-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.homepage-screen .settings-popup {
+    border-radius: 20px;
+}
+
+.settings-box {
+    width: 280px;
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.settings-close-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    object-fit: contain;
+    z-index: 10;
+}
+
+.settings-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.setting-item span {
+    flex: 1;
+    text-align: left;
+}
+
+.setting-item span:first-child {
+    font-size: 22px;
+}
+
+.toggle-btn {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    object-fit: contain;
+}
+
+.toggle-btn:active {
+    transform: scale(0.9);
+}

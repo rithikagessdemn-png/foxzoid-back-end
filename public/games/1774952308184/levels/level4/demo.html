@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #000;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000" />
+    <title>Demo room4</title>
+    <style>
+        /* Prevent white flash - load before CSS */
+        html, body {
+            background: #000 !important;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212604162895578" crossorigin="anonymous"></script>
+    <script src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"></script>
+</head>
+<body>
+    <div id="loader" class="loader"></div>
+    <div class="container" id="gameScreen" style="opacity: 0;">
+        <img src="../../assets/room4/1@3x_1.webp" alt="" class="bg1" id="mainBg">
+        <div class="hitbox"></div> 
+
+        <img src="../../assets/ICONS/game_inventry.webp" alt="" class="inventry" id="inventry">
+        <img src="../../assets/room4/6@3x_1.webp" alt="" class="clue-paper1" id="clueItem">
+        <div class="clue-overlay" id="clue-overlay">
+            <img src="../../assets/room4/3@3x_1.webp" class="blur-bg">
+            <img src="../../assets/room4/clue2@3x.webp" alt="" class="large-clue1">
+            <img src="../../assets/ICONS/close.webp" class="close-btn" id="closebtn">
+        </div>
+        <div class="hitbox2" id="hitbox2"></div> 
+        <div class="box-overlay" id="boxoverlay">
+            
+            <img src="../../assets/room4/3@3x_1.webp" class="blur-bg">
+            <img src="../../assets/room4/clue3@3x@3x.webp" class="box1" id="box1" alt="">
+
+            <div  class="keypad-wrapper" id="keypadWrapper" style="display: none;">
+            
+                <div class="button-grid">
+                    <img src="../../assets/room4/digitallock/1@3x.webp" class="num-btn" data-val="1">
+                    <img src="../../assets/room4/digitallock/2@3x.webp" class="num-btn" data-val="2">
+                    <img src="../../assets/room4/digitallock/3@3x.webp" class="num-btn" data-val="3">
+                    <img src="../../assets/room4/digitallock/4@3x.webp" class="num-btn" data-val="4">
+                    <img src="../../assets/room4/digitallock/5@3x.webp" class="num-btn" data-val="5">
+                    <img src="../../assets/room4/digitallock/6@3x.webp" class="num-btn" data-val="6">
+                    <img src="../../assets/room4/digitallock/7@3x.webp" class="num-btn" data-val="7">
+                    <img src="../../assets/room4/digitallock/8@3x.webp" class="num-btn" data-val="8">
+                    <img src="../../assets/room4/digitallock/9@3x.webp" class="num-btn" data-val="9">
+                    <img src="../../assets/room4/digitallock/w@3x.webp" class="num-btn" data-val="w">
+                    <img src="../../assets/room4/digitallock/0@3x.webp" class="num-btn" data-val="0">
+                    <img src="../../assets/room4/digitallock/e@3x.webp" class="num-btn" data-val="e">
+                </div>
+            </div>
+            
+            <img src="../../assets/ICONS/close.webp" class="close-btn" id="closebtn2">
+        </div>
+        <img src="../../assets/room4/6@3x_1.webp" alt="" class="clue-paper2" id="clueItem2">
+        
+        <div class="clue-overlay2" id="clue-overlay2">
+            <img src="../../assets/room4/3@3x_1.webp" class="blur-bg">
+            <img src="../../assets/room4/7@3x_1.webp" alt="" class="large-clue2">
+            <img src="../../assets/ICONS/close.webp" class="close-btn" id="closebtn3">
+        </div>
+        <div class="box-overlay" id="doorOverlay">
+            <img src="../../assets/room4/3@3x_1.webp" class="blur-bg">
+            <img src="../../assets/room4/8@3x_1.webp" class="doorKeypadImg" id="doorKeypadImg"> 
+            
+            <div class="keypad-wrapper" id="doorKeypadWrapper" >
+                <div class="doorbutton-grid" id="button-grid">
+                    <img src="../../assets/room4/digitallock/1@3x.webp" class="door-btn" data-val="1">
+                    <img src="../../assets/room4/digitallock/2@3x.webp" class="door-btn" data-val="2">
+                    <img src="../../assets/room4/digitallock/3@3x.webp" class="door-btn" data-val="3">
+                    <img src="../../assets/room4/digitallock/4@3x.webp" class="door-btn" data-val="4">
+                    <img src="../../assets/room4/digitallock/5@3x.webp" class="door-btn" data-val="5">
+                    <img src="../../assets/room4/digitallock/6@3x.webp" class="door-btn" data-val="6">
+                    <img src="../../assets/room4/digitallock/7@3x.webp" class="door-btn" data-val="7">
+                    <img src="../../assets/room4/digitallock/8@3x.webp" class="door-btn" data-val="8">
+                    <img src="../../assets/room4/digitallock/9@3x.webp" class="door-btn" data-val="9">
+                    <img src="../../assets/room4/digitallock/w@3x.webp" class="door-btn" data-val="w">
+                    <img src="../../assets/room4/digitallock/0@3x.webp" class="door-btn" data-val="0">
+                    <img src="../../assets/room4/digitallock/e@3x.webp" class="door-btn" data-val="e">
+                </div>
+            </div>
+            <img src="../../assets/ICONS/close.webp" class="close-btn" id="closeDoorBtn">
+        </div>
+        <div class="hitbox3" id="hitbox3"></div> 
+        <div class="final-overlay" id="finalOverlay">
+            <img src="../../assets/room4/finalpanel4.webp" class="final-panel">
+            <img src="../../assets/ICONS/close.webp" class="final-close-btn" id="finalCloseBtn">
+            <div class="lastoptions">
+                <img src="../../assets/ICONS/home.webp" class="homebtn" id="homeBtn">
+                <img src="../../assets/ICONS/play.webp" class="nextbtn" id="nextBtn">
+            </div>
+        </div>
+        
+        <!-- escape game -->
+        <ins class="adsbygoogle panel-ad"
+             style="display:none; position: absolute; width: 100%; left: 0%; bottom: 0%; z-index: 1003; height: 200px;"
+             data-ad-client="ca-pub-3212604162895578"
+             data-ad-slot="1523547496"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        
+    </div>
+    <script src="../load/loaderUtils.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

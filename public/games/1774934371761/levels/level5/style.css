@@ -1,0 +1,366 @@
+  body {
+    margin: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .loader {
+    border: 4px solid #333;
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    z-index: 9999;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .top-panel {
+    position: absolute;
+    top: 480px;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  .game-screen {
+    position: relative;
+    width: 360px;          
+    height: 640px;         
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+  }
+  
+  .bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+    #sceneImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .left-pot {
+      position: absolute;
+      bottom: 220px;    
+      left: 18px;
+      width: 85px;
+      height: 120px;
+      cursor: pointer;
+    }
+
+    .key-click {
+      position: absolute;
+      bottom: 234px;     
+      left: 62px;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .scene {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .key {
+        position: absolute;
+        bottom: 234px;    
+        left: 62px;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        z-index: 5;
+      }
+
+    .key-area {
+      position: absolute;
+      bottom: 234px;    
+      left: 62px;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      z-index: 402;
+      
+        
+      }
+    
+    .key-area.disabled {
+      pointer-events: none;
+    }
+
+    /* Zoom effect */
+    .key.center {
+      left: 50%;
+      top: 50%;
+      bottom: auto;
+      transform: translate(-50%, -50%) scale(1.5);
+    }
+
+    .key2 {
+      position: absolute;
+      bottom: 180px;    
+      right: 100px;
+      width: 80px;
+      height: 45px;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      z-index: 5;
+    }
+
+    .key-area2 {
+      position: absolute;
+      bottom: 180px;    
+      right: 100px;
+      width: 80px;
+      height: 45px;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      z-index: 5;
+    }
+
+    .key-area2.disabled {
+      pointer-events: none;
+    }
+    
+    /* Zoom key */
+    .key.zoom {
+      transform: translate(-50%, -50%) scale(3);
+    }
+
+  .inventory {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+      z-index: 400;
+      pointer-events: none;
+  }
+  .inventory-bg {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      pointer-events: none;
+  }
+  .slot {
+    position: absolute;
+    left: 27px;
+    bottom: 18px;
+    width: 50px;
+    height: 50px;
+    z-index: 401;
+    pointer-events: auto;
+}
+
+
+    /* INVENTORY */
+    /* .inventory {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 90px;
+      background: #24013c;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .slot {
+      width: 70px;
+      height: 70px;
+      background: #180923;
+      border-radius: 40%;
+      pointer-events: auto;
+    } */
+
+    /* Key inside inventory */
+    .slot img {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+    }
+
+    /* Blur overlay */
+    .blur-layer {
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 2;
+    }
+
+    .blur-layer.active {
+      opacity: 1;
+    }
+      
+    .click-area {
+      position: absolute;
+      top: 138px;   /* adjust position */
+      right: 10px;
+      width: 70px;
+      height: 65px;
+      cursor: pointer;
+      z-index: 4;
+    
+      
+    }
+
+    .click-area.disabled {
+      pointer-events: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .overlay-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: none;
+      z-index: 3;
+      pointer-events: auto;
+    }
+
+    .overlay-image.hidden {
+      display: none;
+    }
+
+    .overlay-image.blur {
+      filter: blur(6px);
+    }
+
+    .sceneImage.blur {
+      filter: blur(6px);
+    }
+
+    .inv-key {
+      width: 50px;
+      height: 50px;
+      cursor: grab;
+    }
+
+    .final-key {
+      position: absolute;
+      bottom: 320px;    
+      right: 100px;
+      width: 100px;
+      height: 150px;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      z-index: 5;
+    }
+
+    .final-key.disabled {
+      pointer-events: none;
+    }
+
+    .final-key2 {
+      position: absolute;
+      bottom: 180px;    
+      right: 45px;
+      width: 280px;
+      height: 130px;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      z-index: 5;
+    }
+
+    .final-key2.disabled {
+      pointer-events: none;
+    }
+    
+    .close-btn {
+      position: absolute;
+      /* top: 2px; */
+      bottom: 450px;
+      left: 290px;
+      width: 50px;
+      height: 50px;
+      z-index: 200;
+      cursor: pointer;
+    }
+
+    .finaloverlay-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      z-index: 7;
+      pointer-events: auto;
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      z-index: -1;
+      background: url('../../assets/room5/final_panel_5.webp');
+    }
+  
+  .finaloverlay-image.hidden {
+      display: none;
+    }
+    
+    .final-close-btn {
+      position: absolute;
+      bottom: 500px;
+      left: 290px;
+      width: 50px;
+      height: 50px;
+      z-index: 1002;
+      cursor: pointer;
+    }
+  
+  .final-close-btn.hidden {
+      display: none;
+    }
+
+    .lastoptions {
+      position: absolute;
+      top: 58%;
+      left: 48%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 30px;
+      z-index: 1001;
+  }
+  
+  #lastButtons {
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      transition: transform 0.1s;
+  }
+
+  .adsbygoogle.panel-ad {
+      height: 200px !important;
+  }
+
+  .adsbygoogle.panel-ad div,
+  .adsbygoogle.panel-ad iframe {
+      height: 200px !important;
+  }

@@ -1,0 +1,315 @@
+
+body {
+    margin: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+.loader {
+    border: 4px solid #333;
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    z-index: 9999;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.game-screen {
+    position: relative;
+    width: 360px;          
+    height: 640px;         
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+  }
+  
+#sceneImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+.inventory {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 400;
+    pointer-events: none;
+}
+.inventory-bg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.slot {
+    position: absolute;
+    left: 35px;
+    bottom: 23px;
+    width: 50px;
+    height: 50px;
+    z-index: 401;
+    pointer-events: auto;
+}
+
+.slot1 {
+    position: absolute;
+    left: 125px;
+    bottom: 23px;
+    width: 50px;
+    height: 50px;
+    z-index: 401;
+    pointer-events: auto;
+}
+
+  .overlay-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: auto;
+  }
+
+  .overlay-image.hidden {
+    display: none;
+  }
+
+  .finaloverlay-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: auto;
+  }
+
+body::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    background: url('../../assets/room7/final_panel_7@2x.webp');
+  }
+
+.finaloverlay-image.hidden {
+    display: none;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .blur {
+    filter: blur(6px);
+  }
+
+  .close-btn {
+    position: absolute;
+    /* top: 2px; */
+    bottom: 500px;
+    left: 290px;
+    width: 50px;
+    height: 50px;
+    z-index: 200;
+    cursor: pointer;
+  }
+
+  .close-btn.hidden {
+    display: none;
+  }
+
+  .final-key-area {
+    position: absolute;
+    bottom: 310px;    
+    right: 190px;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 5;
+  }
+
+  .final-key-area.disabled {
+    pointer-events: none;
+  }
+
+  .final-crowbar-area {
+    position: absolute;
+    bottom: 400px;    
+    right: 40px;
+    width: 300px;
+    height: 100px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 5;
+  }
+
+  .final-crowbar-area.disabled {
+    pointer-events: none;
+  }
+
+  .locked-box-area {
+    position: absolute;
+    bottom: 370px;    
+    right: 95px;
+    width: 200px;
+    height: 65px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 5;
+  }
+
+  .locked-box-area.disabled {
+    pointer-events: none;
+  }
+
+  .locked-box-key-area {
+    position: absolute;
+    bottom: 320px;    
+    right: 230px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 5;
+  }
+
+  .locked-box-key-area.disabled {
+    pointer-events: none;
+  }
+
+  .final-key-area {
+    position: absolute;
+    bottom: 335px;    
+    right: 100px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 5;
+  }
+
+  .final-key-area.disabled {
+    pointer-events: none;
+  }
+
+  .final-door-area {
+    position: absolute;
+    bottom: 325px;    
+    right: 210px;
+    width: 30px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 5;
+  }
+
+  .final-door-area.disabled {
+    pointer-events: none;
+  }
+  
+  .final-close-btn {
+    position: absolute;
+    bottom: 500px;
+    left: 290px;
+    width: 50px;
+    height: 50px;
+    z-index: 1002;
+    cursor: pointer;
+  }
+
+.final-close-btn.hidden {
+    display: none;
+  }
+
+.lastoptions {
+    position: absolute;
+    top: 58%;
+    left: 48%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    z-index: 1001;
+}
+
+#lastButtons {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.adsbygoogle.panel-ad {
+    height: 200px !important;
+}
+
+.adsbygoogle.panel-ad div,
+.adsbygoogle.panel-ad iframe {
+    height: 200px !important;
+}
+
+
+.locked-box {
+    position: absolute;
+    bottom: 128px;    
+    right: 40px;
+    width: 85px;
+    height: 75px;
+    cursor: pointer;
+}
+
+.scene {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.key {
+    position: absolute;
+    bottom: 234px;    
+    left: 62px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 5;
+}
+
+.key-area {
+    position: absolute;
+    bottom: 235px;    
+    right: 123px;
+    width: 35px;
+    height: 15px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 4;   
+}
+
+.crowbar {
+    position: absolute;
+    bottom: 180px;    
+    left: 70px;
+    width: 40px;
+    height: 15px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 5;   
+}

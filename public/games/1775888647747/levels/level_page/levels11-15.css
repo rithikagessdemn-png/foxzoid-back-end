@@ -1,0 +1,96 @@
+body{
+    margin: 0;
+    display: flex;
+    background: #000;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.mobile-screen-2{
+    width: 360px;
+    height: 640px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.home-btn-level {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.05s;
+}
+
+.home-btn-level:active {
+    transform: scale(0.9);
+}
+
+.prev-btn-level {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.2s;
+}
+
+.prev-btn-level:active {
+    transform: scale(0.9);
+}
+
+.level-page{
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/levelpages/home_page_without_title.webp");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.level {
+    width: 70px;
+    height: auto;  
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.level:active {
+    transform: scale(0.9);
+}
+
+.level11 { top: 22%; left: 20%; }
+.level12 { top: 22%; left: 60%; }
+
+.level13 { top: 37%; left: 20%; }
+.level14 { top: 37%; left: 60%; }
+
+.level15 { top: 52%; left: 20%; }
+
+.level-wrapper {
+    position: absolute;
+    z-index: 10;
+}
+
+.locked {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.hidden {
+    display: none;
+}

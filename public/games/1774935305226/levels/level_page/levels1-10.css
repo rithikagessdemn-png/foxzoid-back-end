@@ -1,0 +1,117 @@
+body{
+    margin: 0;
+    display: flex;
+    background: #000;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.mobile-screen{
+    width: 360px;
+    height: 640px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.home-btn-level {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.05s;
+}
+
+.home-btn-level:active {
+    transform: scale(0.9);
+}
+
+.next-btn-level {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.2s;
+}
+
+.next-btn-level:active {
+    transform: scale(0.9);
+}
+
+.level-page{
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/levelpages/home_page_without_title.webp");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.Title{
+    width: 100%;
+    position: absolute;
+    top: 35px;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.title{
+    width: 150px;
+    height: auto;
+}
+
+.level {
+    width: 70px;
+    height: auto;  
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.level:active {
+    transform: scale(0.9);
+}
+
+.level1  { top: 22%; left: 20%; }
+.level2  { top: 22%; left:60% }
+
+.level3  { top: 37%; left: 20%; }
+.level4  { top: 37%; left: 60%; }
+
+.level5  { top: 52%; left: 20%; }
+.level6  { top: 52%; left: 60%; }
+
+.level7  { top: 67%; left: 20%; }
+.level8  { top: 67%; left: 60%; }
+
+.level9  { top: 82%; left: 20%; }
+.level10 { top: 82%; left: 60%; }
+
+.level-wrapper {
+    position: absolute;
+    z-index: 10;
+}
+
+.locked {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.hidden {
+    display: none;
+}

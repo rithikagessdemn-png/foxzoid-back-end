@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #000;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <title>level9</title>
+  <style>
+    /* Prevent white flash - load before CSS */
+    html, body {
+      background: #000 !important;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212604162895578" crossorigin="anonymous"></script>
+  <script src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"></script>
+</head>
+<body>
+
+  <div class="game-screen">
+    
+    <div class="scene" id="scene">
+        <img id="sceneImage" src="../../assets/room9/bg_1.webp" />
+        <div class="clue-area" id="clueArea"></div>
+        <img src="../../assets/room9/clue.webp" class="overlay-image hidden" id="overlay">
+        <img src="../../assets/ICONS/close.webp" id="closeBtn" class="close-btn hidden" alt="Close"/>
+        <div class="box-area" id="boxArea"></div>
+        <div class="lock-area disabled" id="lockArea"></div>
+        <div  class="keypad-wrapper" id="keypadWrapper" style="display: none;">
+            <div class="button-grid">
+                <img src="../../assets/room9/digital lock croped/1@3x.webp" class="num-btn" data-val="1">
+                <img src="../../assets/room9/digital lock croped/2@3x.webp" class="num-btn" data-val="2">
+                <img src="../../assets/room9/digital lock croped/3@3x.webp" class="num-btn" data-val="3">
+                <img src="../../assets/room9/digital lock croped/4@3x.webp" class="num-btn" data-val="4">
+                <img src="../../assets/room9/digital lock croped/5@3x.webp" class="num-btn" data-val="5">
+                <img src="../../assets/room9/digital lock croped/6@3x.webp" class="num-btn" data-val="6">
+                <img src="../../assets/room9/digital lock croped/7@3x.webp" class="num-btn" data-val="7">
+                <img src="../../assets/room9/digital lock croped/8@3x.webp" class="num-btn" data-val="8">
+                <img src="../../assets/room9/digital lock croped/9@3x.webp" class="num-btn" data-val="9">
+                <img src="../../assets/room9/digital lock croped/w@3x.webp" class="num-btn" data-val="w">
+                <img src="../../assets/room9/digital lock croped/0@3x.webp" class="num-btn" data-val="0">
+                <img src="../../assets/room9/digital lock croped/e@3x.webp" class="num-btn" data-val="e">
+            </div>
+        </div>
+        <div class="key-area disabled" id="keyArea"></div>
+        <div class="final-lock-area disabled" id="finalLockArea"></div>
+        <img src="../../assets/ICONS/close.webp" id="finalCloseBtn" class="final-close-btn hidden" alt="Close"/>
+
+
+        <div class="lastoptions" id="lastoptions" style="display: none;">
+          <img src="../../assets/ICONS/home.webp" alt="" class="homebtn" id="lastButtons">
+          <!-- <img src="../../assets/ICONS/setting.png" alt="" class="retrybtn" id="lastButtons"> -->
+          <img src="../../assets/ICONS/play.webp" alt=""class="nextbtn" id="lastButtons">
+     </div>
+        
+        <!-- escape game -->
+        <ins class="adsbygoogle panel-ad"
+             style="display:none; position: absolute; width: 100%; left: 0%; bottom: 0%; z-index: 1003; height: 200px;"
+             data-ad-client="ca-pub-3212604162895578"
+             data-ad-slot="1523547496"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins> 
+    </div>
+    <div class="inventory">
+        <img src="../../assets/ICONS/game_inventry.webp" class="inventory-bg" id="inventory" />
+
+        <div class="slot" id="slot"></div>
+        <div class="slot1" id="slot1"></div>
+    </div>
+  </div>
+  <script src="../load/loaderUtils.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

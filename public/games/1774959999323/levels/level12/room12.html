@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #000;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000" />
+    <title>Escape Room - Level 12</title>
+    <style>
+        /* Prevent white flash - load before CSS */
+        html, body {
+            background: #000 !important;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212604162895578" crossorigin="anonymous"></script>
+    <script src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"></script>
+</head>
+<body>
+<div id="loader" class="loader"></div>
+<div class="game-screen" id="gameScreen" style="opacity: 0;">
+    <img src="../../assets/room12/1bg.webp" class="bg-image" id="bgImage"/>
+
+    <img src="../../assets/room12/lo.webp" class="door-knob hidden" id="doorKnobImg"/>
+
+    <div class="door-knob-hitbox" id="doorKnobHitbox"></div>
+1
+    <div id="doorArea" class="door-drop-zone disabled"></div>
+
+    <img src="../../assets/ICONS/close.webp" id="closeButton" class="close-btn hidden" />
+
+    <div class="inventory">
+        <img src="../../assets/ICONS/game_inventry.webp" class="inventory-bg" />
+        <div class="slot" id="slot1"></div>
+    </div>
+
+    <div id="mazeOverlay" class="maze-overlay hidden">
+        <div class="maze-container">
+            <canvas id="mazeCanvas"></canvas>
+
+            <div id="joystick-zone" class="controls">
+                <div id="joystick-base">
+                    <div id="joystick-stick"></div>
+                </div>
+            </div>
+            <p class="instructions">Guide the Key out of the Maze!</p>
+        </div>
+    </div>
+
+    <div id="levelCompletePanel" class="level-complete-container hidden">
+        <img src="../../assets/room12/finalpanel12@2x.webp" class="panel-bg" />
+
+        <img src="../../assets/ICONS/close.webp" id="panelCloseBtn" class="panel-close-btn" />
+
+        <div class="panel-buttons">
+            <img src="../../assets/ICONS/home.webp" id="homeBtn" class="panel-btn" />
+            <img src="../../assets/ICONS/play.webp" id="nextBtn" class="panel-btn" />
+        </div>
+    </div>
+
+    <!-- escape game -->
+    <ins class="adsbygoogle panel-ad"
+         style="display:none; position: absolute; width: 100%; left: 0%; bottom: 0%; z-index: 1003; height: 200px;"
+         data-ad-client="ca-pub-3212604162895578"
+         data-ad-slot="1523547496"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+
+</div>
+
+<script src="../load/loaderUtils.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

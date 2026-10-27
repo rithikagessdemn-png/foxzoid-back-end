@@ -1,0 +1,275 @@
+body {
+    margin: 0;
+    background-color: rgb(21, 21, 21);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+.loader {
+    border: 4px solid #333;
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    z-index: 9999;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.game-screen {
+    position: relative;
+    width: 360px;          
+    height: 640px;         
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+  }
+  
+#sceneImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+.inventory {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 400;
+    pointer-events: none;
+}
+.inventory-bg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.slot {
+    position: absolute;
+    left: 27px;
+    bottom: 12px;
+    width: 50px;
+    height: 50px;
+    z-index: 401;
+    pointer-events: auto;
+}
+
+.slot1 {
+    position: absolute;
+    left: 125px;
+    bottom: 23px;
+    width: 50px;
+    height: 50px;
+    z-index: 401;
+    pointer-events: auto;
+}
+
+.scene {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+.clue-area {
+    position: absolute;
+    bottom: 355px;    
+    left: 58px;
+    width: 35px;
+    height: 25px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    /* z-index: 2;    */
+    }
+
+.clue-area.disabled {
+    pointer-events: none; 
+    }
+
+.box-area {
+    position: absolute;
+    bottom: 375px;    
+    right: 16px;
+    width: 65px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    /* z-index: 2;    */
+    }
+
+.box-area.disabled {
+    pointer-events: none; 
+    }
+
+.overlay-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: auto;
+  }
+
+body::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    background: url('../../assets/room13/final_panel_5.webp');
+  }
+
+.overlay-image.hidden {
+    display: none;
+  }
+
+.close-btn {
+    position: absolute;
+    bottom: 500px;
+    left: 290px;
+    width: 50px;
+    height: 50px;
+    z-index: 200;
+    cursor: pointer;
+  }
+
+.close-btn.hidden {
+    display: none;
+  }
+
+.blur {
+    filter: blur(6px);
+  }
+
+.hidden {
+    display: none;
+  }
+
+.lock-area {
+    position: absolute;
+    bottom: 265px;    
+    left: 145px;
+    width: 70px;
+    height:110px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 2;   
+}
+.lock-area.disabled {
+    pointer-events: none; 
+    }
+
+.num-btn {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.num-btn:active {
+    transform: scale(0.9);
+    filter: brightness(1.2);
+}
+
+.keypad-wrapper {
+    position: absolute;
+    top:36%; /* Changed from 35% to center it with the safe */
+    left: 48%;
+    transform: translate(-50%, -50%);
+    width: 240px; /* Matched closer to box1 width */
+    z-index: 210;
+    pointer-events: none;
+}
+
+.button-grid {
+    position: absolute;
+    top: 19%;    /* Adjust these % until buttons align with box1's keypad area */
+    left: 19%;   
+    width: 62%;  
+    height: 40%; 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    pointer-events: auto;
+}
+
+.key-area {
+    position: absolute;
+    bottom: 255px;    
+    right: 135px;
+    width: 115px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 2;   
+    }
+
+.key-area.disabled {
+    pointer-events: none; 
+    }
+
+.final-lock-area {
+    position: absolute;
+    bottom: 360px;    
+    right: 150px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 5;
+}
+
+.final-lock-area.disabled {
+    pointer-events: none;
+
+}
+
+.lastoptions {
+    position: absolute;
+    top: 58%;
+    left: 48%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    z-index: 1001;
+}
+
+#lastButtons {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+    
+.final-close-btn {
+    position: absolute;
+    bottom: 500px;
+    left: 290px;
+    width: 50px;
+    height: 50px;
+    z-index: 1002;
+    cursor: pointer;
+  }
+
+.final-close-btn.hidden {
+    display: none;
+  }
+
+.adsbygoogle.panel-ad {
+    height: 200px !important;
+}
+
+.adsbygoogle.panel-ad div,
+.adsbygoogle.panel-ad iframe {
+    height: 200px !important;
+}
